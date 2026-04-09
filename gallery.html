@@ -87,56 +87,40 @@
 <body class="antialiased font-sans flex flex-col min-h-screen">
 
     <!-- Navigation Bar -->
-    <nav class="w-full z-50 py-8 px-4 border-b border-white/5 backdrop-blur-md sticky top-0 bg-black/50">
-        <ul class="flex justify-center items-center gap-6 md:gap-16">
+    <nav class="absolute top-0 left-0 w-full z-50 py-6 px-4">
+        <ul class="flex justify-center items-center gap-6 md:gap-12">
             <li>
                 <a href="index.html"
-                    class="text-white text-sm font-bold uppercase tracking-widest hover:text-brand-red transition-all duration-300 relative group">
-                    Home
-                    <span
-                        class="absolute -bottom-2 left-0 w-0 h-0.5 bg-brand-red transition-all duration-300 group-hover:w-full"></span>
-                </a>
+                    class="text-white text-sm md:text-base font-medium uppercase tracking-widest hover:text-brand-red transition-colors duration-300">Home</a>
             </li>
             <li>
                 <a href="about.html"
-                    class="text-white text-sm font-bold uppercase tracking-widest hover:text-brand-red transition-all duration-300 relative group">
-                    About
-                    <span
-                        class="absolute -bottom-2 left-0 w-0 h-0.5 bg-brand-red transition-all duration-300 group-hover:w-full"></span>
-                </a>
+                    class="text-white text-sm md:text-base font-medium uppercase tracking-widest text-brand-red transition-colors duration-300">About</a>
             </li>
-            <li class="px-2 md:px-4">
-                <a href="index.html" class="block">
+            <li class="px-2 md:px-8">
+                <a href="index.html">
                     <img src="./assets-images/Sachin-Logo_White 1.png" alt="Sachin Logo"
-                        class="h-10 md:h-12 object-contain hover:scale-110 transition-transform duration-500 brightness-110">
+                        class="h-10 md:h-16 object-contain hover:scale-105 transition-transform duration-300">
                 </a>
             </li>
             <li>
                 <a href="gallery.html"
-                    class="text-brand-red text-sm font-bold uppercase tracking-widest transition-all duration-300 relative">
-                    Gallery
-                    <span class="absolute -bottom-2 left-0 w-full h-0.5 bg-brand-red"></span>
-                </a>
+                    class="text-white text-sm md:text-base font-medium uppercase tracking-widest hover:text-brand-red transition-colors duration-300">Gallery</a>
             </li>
             <li>
                 <a href="index.html#album"
-                    class="text-white text-sm font-bold uppercase tracking-widest hover:text-brand-red transition-all duration-300 relative group">
-                    Album
-                    <span
-                        class="absolute -bottom-2 left-0 w-0 h-0.5 bg-brand-red transition-all duration-300 group-hover:w-full"></span>
-                </a>
+                    class="text-white text-sm md:text-base font-medium uppercase tracking-widest hover:text-brand-red transition-colors duration-300">Album</a>
             </li>
         </ul>
     </nav>
-
     <!-- Main Banner -->
     <section class="mb-32 px-[10%]">
         <div class="relative w-full h-[70vh] md:h-[85vh] overflow-hidden shadow-2xl">
-            <img src="./assets-images/gallery/smoke%20image.png" alt="Gallery Banner"
+            <img src="assets-images/gallery/Frame4.png" alt="Gallery Banner"
                 class="w-full h-full object-cover object-[center_20%]">
             <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
                 <h1
-                    class="mt-32 md:mt-48 lg:mt-56 text-6xl md:text-8xl lg:text-9xl font-bold tracking-tighter gallery-banner-text reveal-up uppercase">
+                    class="mt-[544px] md:mt-[508px] lg:mt-[516px] text-6xl md:text-8xl lg:text-9xl font-bold tracking-tighter gallery-banner-text reveal-up uppercase">
                     Gallery</h1>
             </div>
         </div>
