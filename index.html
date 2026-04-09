@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sachin - Official Website</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Social Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS (CDN for static deployment) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-red': '#E52E2D',
+                        'brand-red-hover': '#c42424',
+                        'brand-teal': '#20c997',
+                        'brand-black': '#030303',
+                        'brand-dark': '#0a0a0a'
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #030303; color: white; overflow-x: hidden; }
+        
+        /* Utility for intersections */
+        .reveal-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal-up.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .image-gradient-mask {
+            mask-image: linear-gradient(to top, transparent 10%, black 50%);
+            -webkit-mask-image: linear-gradient(to top, transparent 10%, black 50%);
+        }
+    </style>
+</head>
+<body class="antialiased font-sans flex flex-col min-h-screen relative">
+    
+    <!-- Navigation Bar -->
+    <nav class="absolute top-0 left-0 w-full z-50 py-6 px-4">
+        <ul class="flex justify-center items-center gap-6 md:gap-12">
+            <li>
+                <a href="index.html" class="text-white text-sm md:text-base font-medium uppercase tracking-widest hover:text-brand-red transition-colors duration-300">Home</a>
+            </li>
+            <li>
+                <a href="about.html" class="text-white text-sm md:text-base font-medium uppercase tracking-widest hover:text-brand-red transition-colors duration-300">About</a>
+            </li>
+            <li class="px-2 md:px-8">
+                <a href="index.html">
+                    <img src="./assets-images/Sachin-Logo_White 1.png" alt="Sachin Logo" class="h-10 md:h-16 object-contain hover:scale-105 transition-transform duration-300">
+                </a>
+            </li>
+            <li>
+                <a href="gallery.html" class="text-white text-sm md:text-base font-medium uppercase tracking-widest hover:text-brand-red transition-colors duration-300">Gallery</a>
+            </li>
+            <li>
+                <a href="#album" class="text-white text-sm md:text-base font-medium uppercase tracking-widest hover:text-brand-red transition-colors duration-300">Album</a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-screen flex items-center px-6 md:px-[5%] pt-32 overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="./assets-images/Rectangle 3.png" alt="Sachin Performance" class="w-full h-full object-cover object-top md:object-center">
+            <div class="absolute inset-0 bg-gradient-to-r from-black/90 via-black/50 to-transparent"></div>
+        </div>
+        
+        <div class="relative z-10 max-w-2xl reveal-up active" style="transition-delay: 200ms;">
+            <div class="mb-4">
+                <img src="./assets-images/Sachin-Logo_White 1.png" alt="Sachin" class="h-24 md:h-36 mb-2 drop-shadow-xl">
+            </div>
+            <h1 class="text-3xl md:text-5xl font-normal leading-tight mb-10 drop-shadow-lg text-white">
+                Preserving Emotions Through Melody,<br/>Turning Moments into Memories.
+            </h1>
+            <a href="#playlist" class="inline-block bg-brand-red text-white border border-brand-red px-8 py-3 rounded-md font-medium text-lg hover:bg-brand-red-hover hover:border-brand-red-hover hover:-translate-y-1 hover:shadow-[0_10px_20px_rgba(229,46,45,0.4)] transition-all duration-300">
+                Explore Music
+            </a>
+        </div>
+    </section>
+
+    <!-- All Time Playlist Section -->
+    <section id="playlist" class="py-24 bg-gradient-to-b from-transparent to-brand-black/90">
+        <div class="container mx-auto px-4 max-w-6xl">
+            <div class="text-center mb-16 reveal-up">
+                <h2 class="text-3xl md:text-5xl font-semibold mb-3">All Time Playlist</h2>
+                <p class="text-gray-400 text-lg">A collection of stories told through rhythm and voice.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                <div class="rounded-lg overflow-hidden cursor-pointer group shadow-xl reveal-up" style="transition-delay: 100ms;">
+                    <img src="./assets-images/alb1 2.png" alt="Playlist Cover 1" class="w-full h-auto object-cover transform group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500"></div>
+                </div>
+                <div class="rounded-lg overflow-hidden cursor-pointer group shadow-xl reveal-up" style="transition-delay: 200ms;">
+                    <img src="./assets-images/album1 2.png" alt="Playlist Cover 2" class="w-full h-auto object-cover transform group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500"></div>
+                </div>
+                <div class="rounded-lg overflow-hidden cursor-pointer group shadow-xl reveal-up" style="transition-delay: 300ms;">
+                    <img src="./assets-images/alb3 2.png" alt="Playlist Cover 3" class="w-full h-auto object-cover transform group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500"></div>
+                </div>
+            </div>
+            
+            <div class="text-center reveal-up" style="transition-delay: 400ms;">
+                <a href="#more" class="inline-block bg-brand-red text-white px-8 py-3 rounded-md font-medium text-lg hover:bg-brand-red-hover hover:-translate-y-1 hover:shadow-[0_10px_20px_rgba(229,46,45,0.4)] transition-all duration-300">
+                    Explore Music
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-24 bg-black">
+        <div class="container mx-auto px-4 max-w-6xl">
+            <div class="text-center mb-16 reveal-up">
+                <h2 class="text-3xl md:text-5xl font-semibold leading-tight">A glimpse of the artist,<br/>and the glory behind him.</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
+                <div class="rounded-xl overflow-hidden aspect-[9/16] group reveal-up" style="transition-delay: 100ms;">
+                    <img src="./assets-images/Component 16.png" alt="Gallery 1" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+                </div>
+                <div class="rounded-xl overflow-hidden aspect-[9/16] group reveal-up" style="transition-delay: 200ms;">
+                    <img src="./assets-images/Component 17.png" alt="Gallery 2" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+                </div>
+                <div class="rounded-xl overflow-hidden aspect-[9/16] group reveal-up" style="transition-delay: 300ms;">
+                    <img src="./assets-images/Component 18.png" alt="Gallery 3" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Sneak Peek Section -->
+    <section id="about" class="relative py-24 min-h-[80vh] flex items-center overflow-hidden bg-brand-black">
+        <!-- Clouds BG -->
+        <div class="absolute bottom-0 left-0 w-full z-0 pointer-events-none opacity-80 mix-blend-screen">
+            <img src="./assets-images/single-cloud-air-isolated-black-background-fog-white-clouds-haze-designs-isolated 2.png" alt="Clouds" class="w-full h-auto object-cover object-bottom">
+        </div>
+        
+        <div class="container mx-auto px-4 max-w-6xl relative z-10 flex flex-col md:flex-row items-center justify-between gap-12">
+            <!-- Left side visual -->
+            <div class="w-full md:w-1/2 relative reveal-up">
+                <img src="./assets-images/Untitled design 1.png" alt="Sachin Close-up" class="w-full max-w-[450px] mx-auto image-gradient-mask">
+                <h2 class="absolute bottom-[20%] left-0 md:-left-8 text-3xl md:text-5xl lg:text-6xl font-bold leading-tight drop-shadow-2xl">
+                    An <span class="text-brand-red">Experience</span>,<br/>
+                    not just a <span class="text-brand-red">performance</span>
+                </h2>
+            </div>
+            
+            <!-- Right side text -->
+            <div class="w-full md:w-1/2 max-w-[450px] text-center md:text-left reveal-up" style="transition-delay: 200ms;">
+                <h2 class="text-4xl md:text-6xl font-bold mb-6">About</h2>
+                <p class="text-gray-300 text-lg mb-10 leading-relaxed">
+                    "As a dynamic, confident singing professional with 35 years of experience interpreting, memorizing, and performing songs across a variety of genres and styles, I am confident that I can make a substantial impact on your establishment. Successes as your one of the favorite singers."
+                </p>
+                <div class="flex flex-col items-center md:items-start">
+                    <p class="text-xl mb-4">Follow me</p>
+                    <div class="flex gap-6 text-2xl">
+                        <a href="#" class="hover:text-brand-red hover:-translate-y-1 transition-all duration-300"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="hover:text-brand-red hover:-translate-y-1 transition-all duration-300"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="hover:text-brand-red hover:-translate-y-1 transition-all duration-300"><i class="fab fa-spotify"></i></a>
+                        <a href="#" class="hover:text-brand-red hover:-translate-y-1 transition-all duration-300"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="#" class="hover:text-brand-red hover:-translate-y-1 transition-all duration-300"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 bg-black border-t border-gray-900 text-center text-gray-500 text-sm relative z-20">
+        <div class="container mx-auto px-4">
+            <p>2026 All Rights Reserved | Developed by <span class="text-brand-teal font-semibold cursor-pointer hover:underline">Advibe360</span></p>
+        </div>
+    </footer>
+
+    <!-- Interactive script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.15
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        // Optional: Unobserve if you only want it to animate once
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.reveal-up:not(.active)').forEach((el) => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>
