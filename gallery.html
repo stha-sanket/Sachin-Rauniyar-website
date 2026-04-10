@@ -81,6 +81,45 @@
                 grid-template-columns: repeat(2, 1fr);
             }
         }
+
+        /* Size-Preserving Pure CSS Slider */
+        .card-slider {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            border-radius: 2.5rem;
+            background: #000;
+        }
+
+        .card-slider img {
+            width: 100%;
+            object-fit: cover;
+            opacity: 0;
+            animation: card-fade 7.5s infinite;
+        }
+
+        .card-slider img:first-child {
+            position: relative;
+            height: auto;
+        }
+
+        .card-slider img:not(:first-child) {
+            position: absolute;
+            inset: 0;
+            height: 100%;
+        }
+
+        .card-slider img:nth-child(1) { animation-delay: 0s; }
+        .card-slider img:nth-child(2) { animation-delay: 2.5s; }
+        .card-slider img:nth-child(3) { animation-delay: 5s; }
+
+        @keyframes card-fade {
+            0%   { opacity: 0; }
+            10%  { opacity: 1; }
+            33%  { opacity: 1; }
+            43%  { opacity: 0; }
+            100% { opacity: 0; }
+        }
     </style>
 </head>
 
@@ -177,68 +216,80 @@
     <section class="max-w-[1400px] mx-auto px-4 md:px-8 mb-40 text-center">
         <h2 class="text-4xl md:text-6xl font-black mb-16 reveal-up tracking-tighter uppercase">All Time Playlists</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="rounded-[2.5rem] overflow-hidden shadow-[0_20px_50px_rgba(229,46,45,0.2)] reveal-up group"
-                style="transition-delay: 100ms;">
-                <img src="./assets-images/gallery/alb1 3.png" class="w-full h-auto img-hover-effect">
+            <!-- Slot 1 -->
+            <div class="reveal-up shadow-[0_20px_50px_rgba(229,46,45,0.2)]" style="transition-delay: 100ms;">
+                <div class="card-slider">
+                    <img src="./assets-images/gallery/alb1 3.png" alt="Playlist 1A">
+                    <img src="./assets-images/gallery/album1 3.png" alt="Playlist 1B">
+                    <img src="./assets-images/gallery/alb3 3.png" alt="Playlist 1C">
+                </div>
             </div>
-            <div class="rounded-[2.5rem] overflow-hidden shadow-[0_20px_50px_rgba(229,46,45,0.2)] reveal-up group"
-                style="transition-delay: 200ms;">
-                <img src="./assets-images/gallery/album1 3.png" class="w-full h-auto img-hover-effect">
+            <!-- Slot 2 -->
+            <div class="reveal-up shadow-[0_20px_50px_rgba(229,46,45,0.2)]" style="transition-delay: 200ms;">
+                <div class="card-slider">
+                    <img src="./assets-images/gallery/album1 3.png" alt="Playlist 2A">
+                    <img src="./assets-images/gallery/alb3 3.png" alt="Playlist 2B">
+                    <img src="./assets-images/gallery/alb1 3.png" alt="Playlist 2C">
+                </div>
             </div>
-            <div class="rounded-[2.5rem] overflow-hidden shadow-[0_20px_50px_rgba(229,46,45,0.2)] reveal-up group"
-                style="transition-delay: 300ms;">
-                <img src="./assets-images/gallery/alb3 3.png" class="w-full h-auto img-hover-effect">
+            <!-- Slot 3 -->
+            <div class="reveal-up shadow-[0_20px_50px_rgba(229,46,45,0.2)]" style="transition-delay: 300ms;">
+                <div class="card-slider">
+                    <img src="./assets-images/gallery/alb3 3.png" alt="Playlist 3A">
+                    <img src="./assets-images/gallery/alb1 3.png" alt="Playlist 3B">
+                    <img src="./assets-images/gallery/album1 3.png" alt="Playlist 3C">
+                </div>
             </div>
         </div>
     </section>
 
     <!-- The Sonic Gallery -->
     <section class="max-w-[1400px] mx-auto px-4 md:px-8 mb-32">
-        <div class="text-center mb-20">
-            <h2 class="text-4xl md:text-6xl font-black mb-4 reveal-up tracking-tighter uppercase">The Sonic Gallery</h2>
-            <p class="text-white text-lg reveal-up font-medium tracking-wide">Discover music through pictures</p>
+        <div class="text-center mb-24">
+            <h2 class="text-5xl md:text-7xl font-bold mb-4 reveal-up tracking-tight">The Sonic Gallery</h2>
+            <p class="text-white/80 text-lg md:text-xl reveal-up font-medium tracking-wide">Discover music through pictures</p>
         </div>
 
-        <div class="masonry-grid !items-end">
+        <div class="masonry-grid !items-start">
             <!-- Column 1 -->
-            <div class="reveal-up" style="transition-delay: 100ms;">
-                <div class="rounded-[2.5rem] overflow-hidden">
+            <div class="reveal-up md:mt-24 mt-0" style="transition-delay: 100ms;">
+                <div class="rounded-[2.5rem] overflow-hidden shadow-2xl">
                     <img src="./assets-images/gallery/7G0A9972 1.png" class="w-full h-auto img-hover-effect">
                 </div>
             </div>
             <!-- Column 2 -->
-            <div class="flex flex-col gap-6 reveal-up md:-translate-y-12" style="transition-delay: 200ms;">
-                <div class="rounded-[2.5rem] overflow-hidden">
+            <div class="flex flex-col gap-8 reveal-up md:mt-12 mt-0" style="transition-delay: 200ms;">
+                <div class="rounded-[2.5rem] overflow-hidden shadow-2xl">
                     <img src="./assets-images/gallery/freepik__front-facing-potrait__39335 1.png"
                         class="w-full h-auto img-hover-effect">
                 </div>
-                <div class="rounded-[2.5rem] overflow-hidden">
+                <div class="rounded-[2.5rem] overflow-hidden shadow-2xl">
                     <img src="./assets-images/gallery/freepik__ultrarealistic-cinematic-shot-of-the-same-man-pres__29942 1.png"
                         class="w-full h-auto img-hover-effect">
                 </div>
             </div>
             <!-- Column 3 (Center) -->
-            <div class="flex flex-col gap-6 reveal-up md:-translate-y-24" style="transition-delay: 300ms;">
-                <div class="rounded-[2.5rem] overflow-hidden">
+            <div class="flex flex-col gap-8 reveal-up" style="transition-delay: 300ms;">
+                <div class="rounded-[2.5rem] overflow-hidden shadow-2xl">
                     <img src="./assets-images/gallery/freepik__man-preserve-exact-facial-features-identity-skin-t__39340 1.png"
                         class="w-full h-auto img-hover-effect">
                 </div>
-                <div class="rounded-[2.5rem] overflow-hidden">
+                <div class="rounded-[2.5rem] overflow-hidden shadow-2xl">
                     <img src="./assets-images/gallery/id21 1.png" class="w-full h-auto img-hover-effect">
                 </div>
             </div>
             <!-- Column 4 -->
-            <div class="flex flex-col gap-6 reveal-up md:-translate-y-12" style="transition-delay: 400ms;">
-                <div class="rounded-[2.5rem] overflow-hidden">
+            <div class="flex flex-col gap-8 reveal-up md:mt-12 mt-0" style="transition-delay: 400ms;">
+                <div class="rounded-[2.5rem] overflow-hidden shadow-2xl">
                     <img src="./assets-images/gallery/7G0A9918 1.png" class="w-full h-auto img-hover-effect">
                 </div>
-                <div class="rounded-[2.5rem] overflow-hidden">
+                <div class="rounded-[2.5rem] overflow-hidden shadow-2xl">
                     <img src="./assets-images/gallery/7G0A9902 1.png" class="w-full h-auto img-hover-effect">
                 </div>
             </div>
             <!-- Column 5 -->
-            <div class="reveal-up" style="transition-delay: 500ms;">
-                <div class="rounded-[2.5rem] overflow-hidden">
+            <div class="reveal-up md:mt-24 mt-0" style="transition-delay: 500ms;">
+                <div class="rounded-[2.5rem] overflow-hidden shadow-2xl">
                     <img src="./assets-images/gallery/freepik__-same-man-preserve-exact-facial-features-identity-__39343 1.png"
                         class="w-full h-auto img-hover-effect">
                 </div>
