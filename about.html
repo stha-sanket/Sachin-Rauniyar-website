@@ -56,8 +56,10 @@
             top: 0;
             bottom: 0;
             left: 50%;
-            width: 3px; /* Slightly bolder */
-            background: #E52E2D; /* Red Line */
+            width: 3px;
+            /* Slightly bolder */
+            background: #E52E2D;
+            /* Red Line */
             transform: translateX(-50%);
         }
 
@@ -94,6 +96,18 @@
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .timeline-dot {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background-color: #E52E2D;
+            /* brand-red */
+            border-radius: 50%;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
         }
     </style>
 </head>
@@ -217,7 +231,8 @@
                         <div
                             class="border border-white/20 p-6 rounded-lg hover:border-brand-red transition-all duration-300 relative">
                             <div
-                                class="absolute top-1/2 -left-12 md:-left-16 w-12 md:w-16 h-[2px] bg-brand-red">
+                                class="absolute top-1/2 -left-12 md:-left-16 w-12 md:w-16 h-[2px] bg-white group-hover:bg-brand-red transition-colors duration-300">
+                                <div class="timeline-dot -left-1.5"></div>
                             </div>
                             <h3 class="text-xl font-medium">Singing Career Started</h3>
                         </div>
@@ -229,9 +244,10 @@
                     <div
                         class="md:w-1/2 pl-12 md:pl-0 md:pr-16 w-full ml-6 md:ml-0 md:text-right text-left group cursor-pointer">
                         <div
-                            class="border border-white/20 p-6 rounded-lg hover:border-white/50 transition-all duration-300 relative">
+                            class="border border-white/20 p-6 rounded-lg hover:border-brand-red transition-all duration-300 relative">
                             <div
-                                class="absolute top-1/2 -left-12 md:-right-16 md:left-auto w-12 md:w-16 h-[2px] bg-brand-red">
+                                class="absolute top-1/2 -left-12 md:-right-16 md:left-auto w-12 md:w-16 h-[2px] bg-white group-hover:bg-brand-red transition-colors duration-300">
+                                <div class="timeline-dot -left-1.5 md:left-auto md:-right-1.5"></div>
                             </div>
                             <h3 class="text-xl font-medium">Debut Album: <br>Om Saregama</h3>
                         </div>
@@ -244,7 +260,8 @@
                         <div
                             class="border border-white/20 p-6 rounded-lg hover:border-brand-red transition-all duration-300 relative">
                             <div
-                                class="absolute top-1/2 -left-12 md:-left-16 w-12 md:w-16 h-[2px] bg-brand-red">
+                                class="absolute top-1/2 -left-12 md:-left-16 w-12 md:w-16 h-[2px] bg-white group-hover:bg-brand-red transition-colors duration-300">
+                                <div class="timeline-dot -left-1.5"></div>
                             </div>
                             <h3 class="text-xl font-medium">Hits FM Award</h3>
                         </div>
@@ -256,9 +273,10 @@
                     <div
                         class="md:w-1/2 pl-12 md:pl-0 md:pr-16 w-full ml-6 md:ml-0 md:text-right text-left group cursor-pointer">
                         <div
-                            class="border border-white/20 p-6 rounded-lg hover:border-white/50 transition-all duration-300 relative">
+                            class="border border-white/20 p-6 rounded-lg hover:border-brand-red transition-all duration-300 relative">
                             <div
-                                class="absolute top-1/2 -left-12 md:-right-16 md:left-auto w-12 md:w-16 h-[2px] bg-brand-red">
+                                class="absolute top-1/2 -left-12 md:-right-16 md:left-auto w-12 md:w-16 h-[2px] bg-white group-hover:bg-brand-red transition-colors duration-300">
+                                <div class="timeline-dot -left-1.5 md:left-auto md:-right-1.5"></div>
                             </div>
                             <h3 class="text-xl font-medium">Multiple Singles<br>Release</h3>
                         </div>
@@ -271,7 +289,8 @@
                         <div
                             class="border border-white/20 p-6 rounded-lg hover:border-brand-red transition-all duration-300 relative">
                             <div
-                                class="absolute top-1/2 -left-12 md:-left-16 w-12 md:w-16 h-[2px] bg-brand-red">
+                                class="absolute top-1/2 -left-12 md:-left-16 w-12 md:w-16 h-[2px] bg-white group-hover:bg-brand-red transition-colors duration-300">
+                                <div class="timeline-dot -left-1.5"></div>
                             </div>
                             <h3 class="text-xl font-medium">Over 10+<br>International Shows</h3>
                         </div>
@@ -283,9 +302,10 @@
                     <div
                         class="md:w-1/2 pl-12 md:pl-0 md:pr-16 w-full ml-6 md:ml-0 md:text-right text-left group cursor-pointer">
                         <div
-                            class="border border-white/20 p-6 rounded-lg hover:border-white/50 transition-all duration-300 relative">
+                            class="border border-white/20 p-6 rounded-lg hover:border-brand-red transition-all duration-300 relative">
                             <div
-                                class="absolute top-1/2 -left-12 md:-right-16 md:left-auto w-12 md:w-16 h-[2px] bg-brand-red">
+                                class="absolute top-1/2 -left-12 md:-right-16 md:left-auto w-12 md:w-16 h-[2px] bg-white group-hover:bg-brand-red transition-colors duration-300">
+                                <div class="timeline-dot -left-1.5 md:left-auto md:-right-1.5"></div>
                             </div>
                             <h3 class="text-xl font-medium">Sparsh Award</h3>
                         </div>
@@ -298,7 +318,8 @@
                         <div
                             class="border border-white/20 p-6 rounded-lg hover:border-brand-red transition-all duration-300 relative">
                             <div
-                                class="absolute top-1/2 -left-12 md:-left-16 w-12 md:w-16 h-[2px] bg-brand-red">
+                                class="absolute top-1/2 -left-12 md:-left-16 w-12 md:w-16 h-[2px] bg-white group-hover:bg-brand-red transition-colors duration-300">
+                                <div class="timeline-dot -left-1.5"></div>
                             </div>
                             <h3 class="text-xl font-medium">Bindawasini Award</h3>
                         </div>
@@ -310,9 +331,10 @@
                     <div
                         class="md:w-1/2 pl-12 md:pl-0 md:pr-16 w-full ml-6 md:ml-0 md:text-right text-left group cursor-pointer">
                         <div
-                            class="border border-white/20 p-6 rounded-lg hover:border-white/50 transition-all duration-300 relative">
+                            class="border border-white/20 p-6 rounded-lg hover:border-brand-red transition-all duration-300 relative">
                             <div
-                                class="absolute top-1/2 -left-12 md:-right-16 md:left-auto w-12 md:w-16 h-[2px] bg-brand-red">
+                                class="absolute top-1/2 -left-12 md:-right-16 md:left-auto w-12 md:w-16 h-[2px] bg-white group-hover:bg-brand-red transition-colors duration-300">
+                                <div class="timeline-dot -left-1.5 md:left-auto md:-right-1.5"></div>
                             </div>
                             <h3 class="text-xl font-medium">Ongoing Musical Story</h3>
                         </div>
@@ -334,15 +356,17 @@
 
     <!-- Album Popup Modal -->
     <div id="album-modal" class="fixed inset-0 z-[100] items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
-        <div id="album-modal-content" class="relative max-w-2xl w-full glass-effect rounded-2xl overflow-hidden shadow-2xl">
+        <div id="album-modal-content"
+            class="relative max-w-2xl w-full glass-effect rounded-2xl overflow-hidden shadow-2xl">
             <!-- Close Button -->
-            <button id="close-modal" class="absolute top-4 right-4 z-10 w-10 h-10 flex items-center justify-center rounded-full bg-black/40 text-white hover:bg-brand-red transition-all duration-300">
+            <button id="close-modal"
+                class="absolute top-4 right-4 z-10 w-10 h-10 flex items-center justify-center rounded-full bg-black/40 text-white hover:bg-brand-red transition-all duration-300">
                 <i class="fas fa-times"></i>
             </button>
-            
+
             <div class="p-2">
                 <img src="./assets-images/pop-up.png" alt="Coming Soon" class="w-full h-auto rounded-xl">
-            </div>              
+            </div>
         </div>
     </div>
 
@@ -386,7 +410,7 @@
                 };
 
                 closeModal.addEventListener('click', closeAction);
-                
+
                 // Close on click outside content
                 albumModal.addEventListener('click', (e) => {
                     if (e.target === albumModal) closeAction();
