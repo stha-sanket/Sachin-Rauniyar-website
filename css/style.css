@@ -1,0 +1,175 @@
+/* 
+ * Global Styles for Sachin Official Website
+ */
+
+:root {
+    --brand-red: #E52E2D;
+    --brand-red-hover: #c42424;
+    --brand-teal: #20c997;
+    --brand-black: #030303;
+    --brand-dark: #0a0a0a;
+}
+
+body {
+    background-color: var(--brand-black);
+    color: white;
+    overflow-x: hidden;
+    opacity: 0;
+    transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+body.page-loaded {
+    opacity: 1;
+}
+
+/* Component Placeholders - Prevents layout shift and fades in */
+#navbar-placeholder {
+    min-height: 100px; /* Approximate navbar height */
+    position: relative;
+    z-index: 100;
+}
+
+#navbar-placeholder, 
+#footer-placeholder, 
+#modal-placeholder {
+    opacity: 0;
+    transform: translateY(-5px);
+    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), 
+                transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+#navbar-placeholder.loaded, 
+#footer-placeholder.loaded, 
+#modal-placeholder.loaded {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Utility for intersections */
+.reveal-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-up.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.image-gradient-mask {
+    mask-image: linear-gradient(to top, transparent 10%, black 50%);
+    -webkit-mask-image: linear-gradient(to top, transparent 10%, black 50%);
+}
+
+/* Glassmorphism */
+.glass-effect {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Interactive Grid Item */
+.rounded-xl {
+    border-radius: 2.5rem !important;
+}
+
+.gallery-grid-item {
+    border-radius: 2.5rem;
+    overflow: hidden;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+/* Size-Preserving Pure CSS Slider */
+.card-slider {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 0.5rem;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
+    background: #000;
+}
+
+/* Specific radius for gallery sliders */
+.gallery-section .card-slider {
+    border-radius: 2.5rem;
+}
+
+.card-slider img {
+    width: 100%;
+    object-fit: cover;
+    opacity: 0;
+    animation: card-fade 7.5s infinite;
+}
+
+.card-slider img:first-child {
+    position: relative;
+    height: auto;
+}
+
+.card-slider img:not(:first-child) {
+    position: absolute;
+    inset: 0;
+    height: 100%;
+}
+
+.card-slider.rounded-xl {
+    border-radius: 2.5rem;
+}
+
+@keyframes card-fade {
+    0% { opacity: 0; }
+    10% { opacity: 1; }
+    33% { opacity: 1; }
+    43% { opacity: 0; }
+    100% { opacity: 0; }
+}
+
+/* Gallery Specific */
+.gallery-banner-text {
+    text-shadow: 0 4px 60px rgba(0, 0, 0, 0.8);
+}
+
+.img-hover-effect {
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.img-hover-effect:hover {
+    transform: scale(1.03);
+    filter: brightness(1.1);
+}
+
+.masonry-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1.5rem;
+    align-items: center;
+}
+
+@media (max-width: 1024px) {
+    .masonry-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 640px) {
+    .masonry-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Timeline Custom Styles */
+.timeline-line::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 3px;
+    background: var(--brand-red);
+    transform: translateX(-50%);
+}
+
+@media (max-width: 768px) {
+    .timeline-line::before {
+        left: 20px;
+        transform: none;
+    }
+}

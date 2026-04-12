@@ -32,101 +32,14 @@
             }
         }
     </script>
-    <style>
-        body {
-            background-color: #030303;
-            color: white;
-            overflow-x: hidden;
-        }
-
-        .reveal-up {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .reveal-up.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .timeline-line::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            width: 3px; /* Slightly bolder */
-            background: #E52E2D; /* Red Line */
-            transform: translateX(-50%);
-        }
-
-        @media (max-width: 768px) {
-            .timeline-line::before {
-                left: 20px;
-                transform: none;
-            }
-        }
-
-        /* Modal Styles */
-        #album-modal {
-            display: none;
-            opacity: 0;
-            transition: opacity 0.4s ease;
-        }
-
-        #album-modal.active {
-            display: flex;
-            opacity: 1;
-        }
-
-        #album-modal-content {
-            transform: scale(0.9);
-            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
-
-        #album-modal.active #album-modal-content {
-            transform: scale(1);
-        }
-
-        .glass-effect {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-    </style>
+    <!-- Global Styles -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body class="antialiased font-sans flex flex-col min-h-screen relative">
 
-    <!-- Navigation Bar -->
-    <nav class="absolute top-0 left-0 w-full z-50 py-6 px-4">
-        <ul class="flex justify-center items-center gap-6 md:gap-12">
-            <li>
-                <a href="index.html"
-                    class="text-white text-sm md:text-base font-medium uppercase tracking-widest hover:text-brand-red transition-colors duration-300">Home</a>
-            </li>
-            <li>
-                <a href="about.html"
-                    class="text-white text-sm md:text-base font-medium uppercase tracking-widest text-brand-red transition-colors duration-300">About</a>
-            </li>
-            <li class="px-2 md:px-8">
-                <a href="index.html">
-                    <img src="./assets-images/Sachin-Logo_White 1.png" alt="Sachin Logo"
-                        class="h-10 md:h-16 object-contain hover:scale-105 transition-transform duration-300">
-                </a>
-            </li>
-            <li>
-                <a href="gallery.html"
-                    class="text-white text-sm md:text-base font-medium uppercase tracking-widest hover:text-brand-red transition-colors duration-300">Gallery</a>
-            </li>
-            <li>
-                <a href="javascript:void(0)" id="album-nav-link"
-                    class="text-white text-sm md:text-base font-medium uppercase tracking-widest hover:text-brand-red transition-colors duration-300">Album</a>
-            </li>
-        </ul>
-    </nav>
+    <!-- Navigation Placeholder -->
+    <div id="navbar-placeholder"></div>
 
     <!-- About Hero Section -->
     <section class="relative min-h-[80vh] flex items-center justify-center pt-24 overflow-hidden px-[10%]">
@@ -323,82 +236,14 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="py-8 bg-black border-t border-gray-900 text-center text-white text-sm relative z-20">
-        <div class="container mx-auto px-4">
-            <p>© 2026 All Rights Reserved | Developed by <a href="https://www.advibe360.com.np" target="_blank"
-                    rel="noopener noreferrer"
-                    class="text-[#3EBB9F] font-semibold hover:underline transition-colors">Advibe360</a></p>
-        </div>
-    </footer>
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
 
-    <!-- Album Popup Modal -->
-    <div id="album-modal" class="fixed inset-0 z-[100] items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
-        <div id="album-modal-content" class="relative max-w-2xl w-full glass-effect rounded-2xl overflow-hidden shadow-2xl">
-            <!-- Close Button -->
-            <button id="close-modal" class="absolute top-4 right-4 z-10 w-10 h-10 flex items-center justify-center rounded-full bg-black/40 text-white hover:bg-brand-red transition-all duration-300">
-                <i class="fas fa-times"></i>
-            </button>
-            
-            <div class="p-2">
-                <img src="./assets-images/pop-up.png" alt="Coming Soon" class="w-full h-auto rounded-xl">
-            </div>              
-        </div>
-    </div>
+    <!-- Modal Placeholder -->
+    <div id="modal-placeholder"></div>
 
-    <!-- Interactive script -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const observerOptions = {
-                root: null,
-                rootMargin: '0px',
-                threshold: 0.15
-            };
-
-            const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('active');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, observerOptions);
-
-            document.querySelectorAll('.reveal-up:not(.active)').forEach((el) => {
-                observer.observe(el);
-            });
-
-            // Album Modal Logic
-            const albumNavLink = document.getElementById('album-nav-link');
-            const albumModal = document.getElementById('album-modal');
-            const closeModal = document.getElementById('close-modal');
-
-            if (albumNavLink && albumModal) {
-                albumNavLink.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    albumModal.classList.add('active');
-                    document.body.style.overflow = 'hidden'; // Prevent scrolling
-                });
-
-                const closeAction = () => {
-                    albumModal.classList.remove('active');
-                    document.body.style.overflow = 'auto'; // Restore scrolling
-                };
-
-                closeModal.addEventListener('click', closeAction);
-                
-                // Close on click outside content
-                albumModal.addEventListener('click', (e) => {
-                    if (e.target === albumModal) closeAction();
-                });
-
-                // Close on Escape key
-                document.addEventListener('keydown', (e) => {
-                    if (e.key === 'Escape' && albumModal.classList.contains('active')) closeAction();
-                });
-            }
-        });
-    </script>
+    <!-- Combined Scripts -->
+    <script src="scripts/include.js"></script>
 </body>
 
 </html>

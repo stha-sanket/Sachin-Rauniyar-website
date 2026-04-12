@@ -32,126 +32,14 @@
             }
         }
     </script>
-    <style>
-        body {
-            background-color: #000;
-            color: white;
-            overflow-x: hidden;
-        }
-
-        .reveal-up {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .reveal-up.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .gallery-banner-text {
-            text-shadow: 0 4px 60px rgba(0, 0, 0, 0.8);
-        }
-
-        .img-hover-effect {
-            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .img-hover-effect:hover {
-            transform: scale(1.03);
-            filter: brightness(1.1);
-        }
-
-        .masonry-grid {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 1.5rem;
-            align-items: center;
-        }
-
-        @media (max-width: 1024px) {
-            .masonry-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-
-        @media (max-width: 640px) {
-            .masonry-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        /* Size-Preserving Pure CSS Slider */
-        .card-slider {
-            position: relative;
-            width: 100%;
-            overflow: hidden;
-            border-radius: 2.5rem;
-            background: #000;
-        }
-
-        .card-slider img {
-            width: 100%;
-            object-fit: cover;
-            opacity: 0;
-            animation: card-fade 7.5s infinite;
-        }
-
-        .card-slider img:first-child {
-            position: relative;
-            height: auto;
-        }
-
-        .card-slider img:not(:first-child) {
-            position: absolute;
-            inset: 0;
-            height: 100%;
-        }
-
-        .card-slider img:nth-child(1) { animation-delay: 0s; }
-        .card-slider img:nth-child(2) { animation-delay: 2.5s; }
-        .card-slider img:nth-child(3) { animation-delay: 5s; }
-
-        @keyframes card-fade {
-            0%   { opacity: 0; }
-            10%  { opacity: 1; }
-            33%  { opacity: 1; }
-            43%  { opacity: 0; }
-            100% { opacity: 0; }
-        }
-    </style>
+    <!-- Global Styles -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body class="antialiased font-sans flex flex-col min-h-screen">
+<body class="antialiased font-sans flex flex-col min-h-screen relative">
 
-    <!-- Navigation Bar -->
-    <nav class="absolute top-0 left-0 w-full z-50 py-6 px-4">
-        <ul class="flex justify-center items-center gap-6 md:gap-12">
-            <li>
-                <a href="index.html"
-                    class="text-white text-sm md:text-base font-medium uppercase tracking-widest hover:text-brand-red transition-colors duration-300">Home</a>
-            </li>
-            <li>
-                <a href="about.html"
-                    class="text-white text-sm md:text-base font-medium uppercase tracking-widest text-brand-red transition-colors duration-300">About</a>
-            </li>
-            <li class="px-2 md:px-8">
-                <a href="index.html">
-                    <img src="./assets-images/Sachin-Logo_White 1.png" alt="Sachin Logo"
-                        class="h-10 md:h-16 object-contain hover:scale-105 transition-transform duration-300">
-                </a>
-            </li>
-            <li>
-                <a href="gallery.html"
-                    class="text-white text-sm md:text-base font-medium uppercase tracking-widest hover:text-brand-red transition-colors duration-300">Gallery</a>
-            </li>
-            <li>
-                <a href="index.html#album"
-                    class="text-white text-sm md:text-base font-medium uppercase tracking-widest hover:text-brand-red transition-colors duration-300">Album</a>
-            </li>
-        </ul>
-    </nav>
+    <!-- Navigation Placeholder -->
+    <div id="navbar-placeholder"></div>
     <!-- Main Banner -->
     <section class="mb-32 px-[10%]">
         <div class="relative w-full h-[70vh] md:h-[85vh] overflow-hidden shadow-2xl">
@@ -213,7 +101,7 @@
     </section>
 
     <!-- All Time Playlists -->
-    <section class="max-w-[1400px] mx-auto px-4 md:px-8 mb-40 text-center">
+    <section class="gallery-section max-w-[1400px] mx-auto px-4 md:px-8 mb-40 text-center">
         <h2 class="text-4xl md:text-6xl font-black mb-16 reveal-up tracking-tighter uppercase">All Time Playlists</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             <!-- Slot 1 -->
@@ -297,38 +185,14 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="py-20 bg-[#050505] border-t border-white/5 text-center">
-        <div class="container mx-auto px-4">
-            <p class="text-white text-sm mt-4">© 2026 All Rights Reserved | Developed by <a
-                    href="https://www.advibe360.com.np" target="_blank" rel="noopener noreferrer"
-                    class="text-[#3EBB9F] font-bold hover:underline transition-colors">Advibe360</a></p>
-        </div>
-    </footer>
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
 
-    <!-- Interactive script -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const observerOptions = {
-                root: null,
-                rootMargin: '0px',
-                threshold: 0.1
-            };
+    <!-- Modal Placeholder -->
+    <div id="modal-placeholder"></div>
 
-            const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('active');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, observerOptions);
-
-            document.querySelectorAll('.reveal-up').forEach((el) => {
-                observer.observe(el);
-            });
-        });
-    </script>
+    <!-- Combined Scripts -->
+    <script src="scripts/include.js"></script>
 </body>
 
 </html>
