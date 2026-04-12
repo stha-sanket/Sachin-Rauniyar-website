@@ -6,14 +6,11 @@
 async function includeHTML() {
     const components = [
         { id: 'navbar-placeholder', file: 'components/navbar.html' },
-        { id: 'footer-placeholder', file: 'components/footer.html' },
-        { id: 'modal-placeholder', file: 'components/album-modal.html' }
+        { id: 'footer-placeholder', file: 'components/footer.html' }
     ];
 
-    // Show the body gracefully
-    document.body.classList.add('page-loaded');
-
-    await Promise.all(components.map(async (comp) => {
+    // Map of loaded status for each component
+    const loadPromises = components.map(async (comp) => {
         const placeholder = document.getElementById(comp.id);
         if (placeholder) {
             try {
@@ -24,20 +21,71 @@ async function includeHTML() {
                     // Trigger reflow for transition
                     void placeholder.offsetWidth;
                     placeholder.classList.add('loaded');
+                    return true;
                 }
             } catch (err) {
                 console.error(`Error loading ${comp.file}:`, err);
             }
         }
-    }));
+        return false;
+    });
 
-    // After loading components, initialize global functionalities
-    initNavbar();
-    initAlbumModal();
+    await Promise.all(loadPromises);
+
+    // Re-initialize active states and observers
+    updateActiveNavLink();
     initRevealObserver();
 }
 
-function initNavbar() {
+// Global Event Delegation for Dynamic Elements (Like Navbar)
+function initGlobalEvents() {
+    // Handle Album Modal Opening
+    document.addEventListener('click', (e) => {
+        const albumLink = e.target.closest('#album-nav-link');
+        const closeModalBtn = e.target.closest('#close-modal');
+        const albumModal = document.getElementById('album-modal');
+        const albumContent = document.getElementById('album-modal-content');
+
+        if (albumLink) {
+            e.preventDefault();
+            if (albumModal) {
+                albumModal.classList.remove('hidden');
+                setTimeout(() => {
+                    albumModal.classList.add('opacity-100');
+                    if (albumContent) albumContent.classList.add('scale-100');
+                }, 10);
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        if (closeModalBtn || (albumModal && e.target === albumModal)) {
+            if (albumModal) {
+                albumModal.classList.remove('opacity-100');
+                if (albumContent) albumContent.classList.remove('scale-100');
+                setTimeout(() => {
+                    albumModal.classList.add('hidden');
+                    document.body.style.overflow = 'auto';
+                }, 400);
+            }
+        }
+    });
+
+    // Handle ESC key for modal
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            const albumModal = document.getElementById('album-modal');
+            if (albumModal && !albumModal.classList.contains('hidden')) {
+                albumModal.classList.remove('opacity-100');
+                setTimeout(() => {
+                    albumModal.classList.add('hidden');
+                    document.body.style.overflow = 'auto';
+                }, 400);
+            }
+        }
+    });
+}
+
+function updateActiveNavLink() {
     const currentPath = window.location.pathname.split('/').pop() || 'index.html';
     const navLinks = document.querySelectorAll('.nav-link');
     
@@ -48,46 +96,6 @@ function initNavbar() {
             link.classList.remove('hover:text-brand-red');
         }
     });
-}
-
-function initAlbumModal() {
-    const albumNavLink = document.getElementById('album-nav-link');
-    const albumModal = document.getElementById('album-modal');
-    const albumContent = document.getElementById('album-modal-content');
-    const closeModal = document.getElementById('close-modal');
-
-    if (albumNavLink && albumModal) {
-        const openAction = (e) => {
-            e.preventDefault();
-            albumModal.classList.remove('hidden');
-            setTimeout(() => {
-                albumModal.classList.add('flex', 'opacity-100');
-                albumContent?.classList.add('scale-100');
-            }, 10);
-            document.body.style.overflow = 'hidden';
-        };
-
-        const closeAction = () => {
-            albumModal.classList.remove('opacity-100');
-            albumContent?.classList.remove('scale-100');
-            setTimeout(() => {
-                albumModal.classList.add('hidden');
-                albumModal.classList.remove('flex');
-            }, 400);
-            document.body.style.overflow = 'auto';
-        };
-
-        albumNavLink.addEventListener('click', openAction);
-        if (closeModal) closeModal.addEventListener('click', closeAction);
-
-        albumModal.addEventListener('click', (e) => {
-            if (e.target === albumModal) closeAction();
-        });
-
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && !albumModal.classList.contains('hidden')) closeAction();
-        });
-    }
 }
 
 function initRevealObserver() {
@@ -111,5 +119,12 @@ function initRevealObserver() {
     });
 }
 
-// Start the inclusion process when DOM is ready
-document.addEventListener('DOMContentLoaded', includeHTML);
+// Initialize delegation immediately
+initGlobalEvents();
+
+// Start loading HTML
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', includeHTML);
+} else {
+    includeHTML();
+}
