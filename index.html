@@ -61,8 +61,10 @@
             position: relative;
             width: 100%;
             overflow: hidden;
-            border-radius: 0.5rem; /* rounded-lg */
-            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1); /* shadow-xl */
+            border-radius: 0.5rem;
+            /* rounded-lg */
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+            /* shadow-xl */
             background: #000;
         }
 
@@ -87,16 +89,67 @@
         }
 
         /* Staggered delay logic */
-        .card-slider img:nth-child(1) { animation-delay: 0s; }
-        .card-slider img:nth-child(2) { animation-delay: 2.5s; }
-        .card-slider img:nth-child(3) { animation-delay: 5s; }
+        .card-slider img:nth-child(1) {
+            animation-delay: 0s;
+        }
+
+        .card-slider img:nth-child(2) {
+            animation-delay: 2.5s;
+        }
+
+        .card-slider img:nth-child(3) {
+            animation-delay: 5s;
+        }
 
         @keyframes card-fade {
-            0%   { opacity: 0; }
-            10%  { opacity: 1; }
-            33%  { opacity: 1; } /* Each image visible for ~2.5s */
-            43%  { opacity: 0; }
-            100% { opacity: 0; }
+            0% {
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 1;
+            }
+
+            33% {
+                opacity: 1;
+            }
+
+            /* Each image visible for ~2.5s */
+            43% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 0;
+            }
+        }
+
+        /* Modal Styles */
+        #album-modal {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        #album-modal.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        #album-modal-content {
+            transform: scale(0.9);
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        #album-modal.active #album-modal-content {
+            transform: scale(1);
+        }
+
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
     </style>
 </head>
@@ -125,7 +178,7 @@
                     class="text-white text-sm md:text-base font-medium uppercase tracking-widest hover:text-brand-red transition-colors duration-300">Gallery</a>
             </li>
             <li>
-                <a href="#album"
+                <a href="javascript:void(0)" id="album-nav-link"
                     class="text-white text-sm md:text-base font-medium uppercase tracking-widest hover:text-brand-red transition-colors duration-300">Album</a>
             </li>
         </ul>
@@ -175,7 +228,9 @@
                         <img src="./assets-images/alb1 2.png" alt="Playlist 1A">
                         <img src="./assets-images/album1 2.png" alt="Playlist 1B">
                         <img src="./assets-images/alb3 2.png" alt="Playlist 1C">
-                        <div class="absolute inset-0 bg-black/20 group-hover:opacity-0 transition-opacity duration-500 z-10"></div>
+                        <div
+                            class="absolute inset-0 bg-black/20 group-hover:opacity-0 transition-opacity duration-500 z-10">
+                        </div>
                     </div>
                 </div>
 
@@ -185,7 +240,9 @@
                         <img src="./assets-images/album1 2.png" alt="Playlist 2A">
                         <img src="./assets-images/alb3 2.png" alt="Playlist 2B">
                         <img src="./assets-images/alb1 2.png" alt="Playlist 2C">
-                        <div class="absolute inset-0 bg-black/20 group-hover:opacity-0 transition-opacity duration-500 z-10"></div>
+                        <div
+                            class="absolute inset-0 bg-black/20 group-hover:opacity-0 transition-opacity duration-500 z-10">
+                        </div>
                     </div>
                 </div>
 
@@ -195,7 +252,9 @@
                         <img src="./assets-images/alb3 2.png" alt="Playlist 3A">
                         <img src="./assets-images/alb1 2.png" alt="Playlist 3B">
                         <img src="./assets-images/album1 2.png" alt="Playlist 3C">
-                        <div class="absolute inset-0 bg-black/20 group-hover:opacity-0 transition-opacity duration-500 z-10"></div>
+                        <div
+                            class="absolute inset-0 bg-black/20 group-hover:opacity-0 transition-opacity duration-500 z-10">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -311,6 +370,22 @@
         </div>
     </footer>
 
+    <!-- Album Popup Modal -->
+    <div id="album-modal" class="fixed inset-0 z-[100] items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
+        <div id="album-modal-content"
+            class="relative max-w-2xl w-full glass-effect rounded-2xl overflow-hidden shadow-2xl">
+            <!-- Close Button -->
+            <button id="close-modal"
+                class="absolute top-4 right-4 z-10 w-10 h-10 flex items-center justify-center rounded-full bg-black/40 text-white hover:bg-brand-red transition-all duration-300">
+                <i class="fas fa-times"></i>
+            </button>
+
+            <div class="p-2">
+                <img src="./assets-images/pop-up.png" alt="Coming Soon" class="w-full h-auto rounded-xl">
+            </div>  
+        </div>
+    </div>
+
     <!-- Interactive script -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -333,6 +408,36 @@
             document.querySelectorAll('.reveal-up:not(.active)').forEach((el) => {
                 observer.observe(el);
             });
+
+            // Album Modal Logic
+            const albumNavLink = document.getElementById('album-nav-link');
+            const albumModal = document.getElementById('album-modal');
+            const closeModal = document.getElementById('close-modal');
+
+            if (albumNavLink && albumModal) {
+                albumNavLink.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    albumModal.classList.add('active');
+                    document.body.style.overflow = 'hidden'; // Prevent scrolling
+                });
+
+                const closeAction = () => {
+                    albumModal.classList.remove('active');
+                    document.body.style.overflow = 'auto'; // Restore scrolling
+                };
+
+                closeModal.addEventListener('click', closeAction);
+
+                // Close on click outside content
+                albumModal.addEventListener('click', (e) => {
+                    if (e.target === albumModal) closeAction();
+                });
+
+                // Close on Escape key
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape' && albumModal.classList.contains('active')) closeAction();
+                });
+            }
         });
     </script>
 </body>
