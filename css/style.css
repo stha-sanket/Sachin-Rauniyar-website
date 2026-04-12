@@ -40,6 +40,11 @@ body {
     transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+#home .reveal-up {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 .reveal-up.active {
     opacity: 1;
     transform: translateY(0);
@@ -87,18 +92,27 @@ body {
     width: 100%;
     object-fit: cover;
     opacity: 0;
-    animation: card-fade 7.5s infinite;
+    animation: card-fade 6s infinite;
 }
 
-.card-slider img:first-child {
+.card-slider img:nth-child(1) {
     position: relative;
     height: auto;
+    animation-delay: 0s;
 }
 
-.card-slider img:not(:first-child) {
+.card-slider img:nth-child(2) {
     position: absolute;
     inset: 0;
     height: 100%;
+    animation-delay: 2s;
+}
+
+.card-slider img:nth-child(3) {
+    position: absolute;
+    inset: 0;
+    height: 100%;
+    animation-delay: 4s;
 }
 
 .card-slider.rounded-xl {
@@ -107,9 +121,9 @@ body {
 
 @keyframes card-fade {
     0% { opacity: 0; }
-    10% { opacity: 1; }
-    33% { opacity: 1; }
-    43% { opacity: 0; }
+    8% { opacity: 1; }
+    33.33% { opacity: 1; }
+    41.33% { opacity: 0; }
     100% { opacity: 0; }
 }
 

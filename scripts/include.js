@@ -35,6 +35,13 @@ async function includeHTML() {
     // Re-initialize active states and observers
     updateActiveNavLink();
     initRevealObserver();
+    // Force activate elements already in viewport on load
+document.querySelectorAll('.reveal-up').forEach(el => {
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight) {
+        el.classList.add('active');
+    }
+});
 }
 
 // Global Event Delegation for Dynamic Elements (Like Navbar)
