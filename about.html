@@ -229,18 +229,24 @@
                 <div class="relative flex md:justify-end justify-start items-center w-full mb-12 reveal-up">
                     <div class="md:w-1/2 pl-12 md:pl-16 w-full ml-6 md:ml-0 group cursor-pointer text-left">
                         <div
-                            class="w-[192px] h-[123px] border-l-2 border-r-2 border-white p-4 hover:border-brand-red transition-all duration-300 relative group flex items-center justify-center text-center">
+                            class="w-[192px] h-[123px] hover:w-[271px] hover:h-[145px] border-l-2 border-r-2 border-white p-4 hover:border-brand-red transition-all duration-300 relative group flex items-center justify-center text-center">
                             <!-- Hover Image Background (overflow-hidden scoped here so it doesn't clip the connector line) -->
                             <div class="absolute inset-0 overflow-hidden">
                                 <img src="./assets-images/gallery/7G0A9972 3.png" alt="Singing Career"
                                     class="w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+                                <!-- Gradient for text readability -->
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                             </div>
                             <div class="absolute top-1/2 -left-12 md:-left-16 w-12 md:w-16 h-[2px] bg-brand-red">
                                 <div class="timeline-dot -left-1.5"></div>
                             </div>
-                            <h3
-                                class="relative z-10 text-xl font-medium opacity-100 group-hover:opacity-0 transition-opacity duration-500">
-                                Singing Career Started</h3>
+                            <!-- Default text (fades out on hover) -->
+                            <h3 class="relative z-10 text-xl font-medium opacity-100 group-hover:opacity-0 transition-opacity duration-500">Singing Career Started</h3>
+                            <!-- Hover text overlay (fades in on hover) -->
+                            <div class="absolute inset-0 z-10 flex flex-col items-center justify-end pb-3 px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                                <p class="text-white font-bold text-sm leading-tight">Singing Career Started</p>
+                                <p class="text-white/80 text-[10px] mt-0.5 leading-tight">Beginning of a soulful music path</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -250,12 +256,24 @@
                     <div
                         class="md:w-1/2 pl-12 md:pl-0 md:pr-16 w-full ml-6 md:ml-0 md:text-right text-left group cursor-pointer">
                         <div
-                            class="w-[192px] h-[123px] border-l-2 border-r-2 border-white p-4 hover:border-brand-red transition-all duration-300 relative md:ml-auto group flex items-center justify-center text-center">
+                            class="w-[192px] h-[123px] hover:w-[271px] hover:h-[145px] border-l-2 border-r-2 border-white p-4 hover:border-brand-red transition-all duration-300 relative md:ml-auto group flex items-center justify-center text-center">
+                            <!-- Hover Image Background -->
+                            <div class="absolute inset-0 overflow-hidden">
+                                <img src="./assets-images/Component 17.png" alt="Debut Album"
+                                    class="w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" style="object-position: center 0%; transform: scale(1.5); transform-origin: center top;">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            </div>
                             <div
                                 class="absolute top-1/2 -left-12 md:-right-16 md:left-auto w-12 md:w-16 h-[2px] bg-brand-red">
                                 <div class="timeline-dot -left-1.5 md:left-auto md:-right-1.5"></div>
                             </div>
-                            <h3 class="text-xl font-medium">Debut Album: <br>Om Saregama</h3>
+                            <!-- Default text (fades out on hover) -->
+                            <h3 class="relative z-10 text-xl font-medium opacity-100 group-hover:opacity-0 transition-opacity duration-500">Debut Album: <br>Om Saregama</h3>
+                            <!-- Hover text overlay (fades in on hover) -->
+                            <div class="absolute inset-0 z-10 flex flex-col items-center justify-end pb-3 px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                                <p class="text-white font-bold text-sm leading-tight">Debut Album: Om Saregama</p>
+                                <p class="text-white/80 text-[10px] mt-0.5 leading-tight">A timeless collection of soulful songs</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -264,7 +282,7 @@
                 <div class="relative flex md:justify-end justify-start items-center w-full mb-12 reveal-up">
                     <div class="md:w-1/2 pl-12 md:pl-16 w-full ml-6 md:ml-0 group cursor-pointer text-left">
                         <div
-                            class="w-[192px] h-[123px] border-l-2 border-r-2 border-white p-4 hover:border-brand-red transition-all duration-300 relative group flex items-center justify-center text-center">
+                            class="w-[192px] h-[123px] hover:w-[271px] hover:h-[145px] border-l-2 border-r-2 border-white p-4 hover:border-brand-red transition-all duration-300 relative group flex items-center justify-center text-center">
                             <div class="absolute top-1/2 -left-12 md:-left-16 w-12 md:w-16 h-[2px] bg-brand-red">
                                 <div class="timeline-dot -left-1.5"></div>
                             </div>
@@ -278,7 +296,7 @@
                     <div
                         class="md:w-1/2 pl-12 md:pl-0 md:pr-16 w-full ml-6 md:ml-0 md:text-right text-left group cursor-pointer">
                         <div
-                            class="w-[192px] h-[123px] border-l-2 border-r-2 border-white p-4 hover:border-brand-red transition-all duration-300 relative md:ml-auto group flex items-center justify-center text-center">
+                            class="w-[192px] h-[123px] hover:w-[271px] hover:h-[145px] border-l-2 border-r-2 border-white p-4 hover:border-brand-red transition-all duration-300 relative md:ml-auto group flex items-center justify-center text-center">
                             <div
                                 class="absolute top-1/2 -left-12 md:-right-16 md:left-auto w-12 md:w-16 h-[2px] bg-brand-red">
                                 <div class="timeline-dot -left-1.5 md:left-auto md:-right-1.5"></div>
@@ -292,7 +310,7 @@
                 <div class="relative flex md:justify-end justify-start items-center w-full mb-12 reveal-up">
                     <div class="md:w-1/2 pl-12 md:pl-16 w-full ml-6 md:ml-0 group cursor-pointer text-left">
                         <div
-                            class="w-[192px] h-[123px] border-l-2 border-r-2 border-white p-4 hover:border-brand-red transition-all duration-300 relative group flex items-center justify-center text-center">
+                            class="w-[192px] h-[123px] hover:w-[271px] hover:h-[145px] border-l-2 border-r-2 border-white p-4 hover:border-brand-red transition-all duration-300 relative group flex items-center justify-center text-center">
                             <div class="absolute top-1/2 -left-12 md:-left-16 w-12 md:w-16 h-[2px] bg-brand-red">
                                 <div class="timeline-dot -left-1.5"></div>
                             </div>
@@ -306,7 +324,7 @@
                     <div
                         class="md:w-1/2 pl-12 md:pl-0 md:pr-16 w-full ml-6 md:ml-0 md:text-right text-left group cursor-pointer">
                         <div
-                            class="w-[192px] h-[123px] border-l-2 border-r-2 border-white p-4 hover:border-brand-red transition-all duration-300 relative md:ml-auto group flex items-center justify-center text-center">
+                            class="w-[192px] h-[123px] hover:w-[271px] hover:h-[145px] border-l-2 border-r-2 border-white p-4 hover:border-brand-red transition-all duration-300 relative md:ml-auto group flex items-center justify-center text-center">
                             <div
                                 class="absolute top-1/2 -left-12 md:-right-16 md:left-auto w-12 md:w-16 h-[2px] bg-brand-red">
                                 <div class="timeline-dot -left-1.5 md:left-auto md:-right-1.5"></div>
@@ -320,7 +338,7 @@
                 <div class="relative flex md:justify-end justify-start items-center w-full mb-12 reveal-up">
                     <div class="md:w-1/2 pl-12 md:pl-16 w-full ml-6 md:ml-0 group cursor-pointer text-left">
                         <div
-                            class="w-[192px] h-[123px] border-l-2 border-r-2 border-white p-4 hover:border-brand-red transition-all duration-300 relative group flex items-center justify-center text-center">
+                            class="w-[192px] h-[123px] hover:w-[271px] hover:h-[145px] border-l-2 border-r-2 border-white p-4 hover:border-brand-red transition-all duration-300 relative group flex items-center justify-center text-center">
                             <div class="absolute top-1/2 -left-12 md:-left-16 w-12 md:w-16 h-[2px] bg-brand-red">
                                 <div class="timeline-dot -left-1.5"></div>
                             </div>
@@ -334,7 +352,7 @@
                     <div
                         class="md:w-1/2 pl-12 md:pl-0 md:pr-16 w-full ml-6 md:ml-0 md:text-right text-left group cursor-pointer">
                         <div
-                            class="w-[192px] h-[123px] border-l-2 border-r-2 border-white p-4 hover:border-brand-red transition-all duration-300 relative md:ml-auto group flex items-center justify-center text-center">
+                            class="w-[192px] h-[123px] hover:w-[271px] hover:h-[145px] border-l-2 border-r-2 border-white p-4 hover:border-brand-red transition-all duration-300 relative md:ml-auto group flex items-center justify-center text-center">
                             <div
                                 class="absolute top-1/2 -left-12 md:-right-16 md:left-auto w-12 md:w-16 h-[2px] bg-brand-red">
                                 <div class="timeline-dot -left-1.5 md:left-auto md:-right-1.5"></div>
