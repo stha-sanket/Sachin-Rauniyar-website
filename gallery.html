@@ -9,9 +9,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-    <!-- FontAwesome for Social Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
     <!-- Tailwind CSS (CDN for static deployment) -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -40,10 +37,9 @@
 
     <!-- Navigation Placeholder -->
     <div id="navbar-placeholder"></div>
-    <!-- Main Banner -->
-    <section class="mb-16 px-[10%] pt-8">
+    <section class="mb-16 px-[10%]">
         <div class="relative w-full h-[70vh] md:h-[85vh] overflow-hidden shadow-2xl">
-            <img src="assets-images/gallery/Frame4.png" alt="Gallery Banner"
+            <img src="assets-images/gallery/hero.png" alt="Gallery Banner"
                 class="w-full h-full object-cover object-[center_20%]">
             <div class="absolute inset-0 bg-black/40 flex items-end justify-center pb-12 md:pb-20 p-8">
                 <h1 class="text-6xl md:text-8xl lg:text-9xl font-bold tracking-tighter gallery-banner-text reveal-up uppercase">
@@ -51,49 +47,48 @@
             </div>
         </div>
     </section>
-
     <!-- Photo Grid 1 (Modern Mosaic) -->
     <section class="max-w-[1400px] mx-auto px-4 md:px-8 mb-32">
         <div class="masonry-grid">
             <!-- Col 1 -->
             <div class="flex flex-col gap-6">
                 <div class="rounded-[2rem] overflow-hidden reveal-up" style="transition-delay: 100ms;">
-                    <img src="./assets-images/gallery/freepik__ultrarealistic-scene-of-the-same-man-preserve-exac__29939 1.png"
+                    <img src="./assets-images/gallery/main/1.png"
                         class="w-full h-auto img-hover-effect">
                 </div>
                 <div class="rounded-[2rem] overflow-hidden reveal-up" style="transition-delay: 200ms;">
-                    <img src="./assets-images/gallery/7G0A9972 3.png" class="w-full h-auto img-hover-effect">
+                    <img src="./assets-images/gallery/main/2.png" class="w-full h-auto img-hover-effect">
                 </div>
             </div>
             <!-- Col 2 -->
-            <div class="relative z-20 -mt-8 md:-mt-16 lg:-mt-24 lg:-mb-48">
+            <div class="relative z-20 -mt-12 md:-mt-20 lg:-mt-32 lg:-mb-48">
                 <div class="rounded-[2rem] overflow-hidden reveal-up shadow-2xl" style="transition-delay: 300ms;">
-                    <img src="./assets-images/gallery/freepik__ultrarealistic-photo-of-the-same-man-from-the-refe__39328 1.png"
-                        class="w-full h-[400px] md:h-[500px] lg:h-[700px] object-cover img-hover-effect">
+                    <img src="./assets-images/gallery/main/3.png"
+                        class="w-full h-[200px] md:h-[250px] lg:h-[350px] object-cover img-hover-effect">
                 </div>
             </div>
             <!-- Col 3 (Tallest Center) -->
-            <div class="">
+            <div class="mt-16">
                 <div class="rounded-[2rem] overflow-hidden reveal-up" style="transition-delay: 400ms;">
-                    <img src="./assets-images/gallery/freepik__ultrarealistic-scene-of-the-same-man-preserve-exac__29947 1.png"
+                    <img src="./assets-images/gallery/main/4.png"
                         class="w-full h-auto img-hover-effect">
                 </div>
             </div>
             <!-- Col 4 -->
-            <div class="md:-translate-y-12">
+            <div class="relative z-20 -mt-12 md:-mt-20 lg:-mt-32 lg:-mb-48">
                 <div class="rounded-[2rem] overflow-hidden reveal-up" style="transition-delay: 500ms;">
-                    <img src="./assets-images/gallery/freepik__ultrarealistic-scene-of-the-same-man-preserve-exac__29953 1.png"
+                    <img src="./assets-images/gallery/main/5.png"
                         class="w-full h-auto img-hover-effect">
                 </div>
             </div>
             <!-- Col 5 -->
             <div class="flex flex-col gap-6">
                 <div class="rounded-[2rem] overflow-hidden reveal-up" style="transition-delay: 600ms;">
-                    <img src="./assets-images/gallery/freepik__ultrarealistic-cinematic-scene-of-the-same-man-pre__39342 1.png"
+                    <img src="./assets-images/gallery/main/6.png"
                         class="w-full h-auto img-hover-effect">
                 </div>
                 <div class="rounded-[2rem] overflow-hidden reveal-up" style="transition-delay: 700ms;">
-                    <img src="./assets-images/gallery/7G0A9972 2.png" class="w-full h-auto img-hover-effect">
+                    <img src="./assets-images/gallery/main/7.png" class="w-full h-auto img-hover-effect">
                 </div>
             </div>
         </div>
@@ -106,25 +101,25 @@
             <!-- Slot 1 -->
             <div class="reveal-up shadow-[0_20px_50px_rgba(229,46,45,0.2)]" style="transition-delay: 100ms;">
                 <div class="card-slider">
-                    <img src="./assets-images/gallery/alb1 3.png" alt="Playlist 1A">
-                    <img src="./assets-images/gallery/album1 3.png" alt="Playlist 1B">
-                    <img src="./assets-images/gallery/alb3 3.png" alt="Playlist 1C">
+                    <img src="./assets-images/gallery/playlist/alb1 3.png" alt="Playlist 1A">
+                    <img src="./assets-images/gallery/playlist/album1 3.png" alt="Playlist 1B">
+                    <img src="./assets-images/gallery/playlist/alb3 3.png" alt="Playlist 1C">
                 </div>
             </div>
             <!-- Slot 2 -->
             <div class="reveal-up shadow-[0_20px_50px_rgba(229,46,45,0.2)]" style="transition-delay: 200ms;">
                 <div class="card-slider">
-                    <img src="./assets-images/gallery/album1 3.png" alt="Playlist 2A">
-                    <img src="./assets-images/gallery/alb3 3.png" alt="Playlist 2B">
-                    <img src="./assets-images/gallery/alb1 3.png" alt="Playlist 2C">
+                    <img src="./assets-images/gallery/playlist/album1 3.png" alt="Playlist 2A">
+                    <img src="./assets-images/gallery/playlist/alb3 3.png" alt="Playlist 2B">
+                    <img src="./assets-images/gallery/playlist/alb1 3.png" alt="Playlist 2C">
                 </div>
             </div>
             <!-- Slot 3 -->
             <div class="reveal-up shadow-[0_20px_50px_rgba(229,46,45,0.2)]" style="transition-delay: 300ms;">
                 <div class="card-slider">
-                    <img src="./assets-images/gallery/alb3 3.png" alt="Playlist 3A">
-                    <img src="./assets-images/gallery/alb1 3.png" alt="Playlist 3B">
-                    <img src="./assets-images/gallery/album1 3.png" alt="Playlist 3C">
+                    <img src="./assets-images/gallery/playlist/alb3 3.png" alt="Playlist 3A">
+                    <img src="./assets-images/gallery/playlist/alb1 3.png" alt="Playlist 3B">
+                    <img src="./assets-images/gallery/playlist/album1 3.png" alt="Playlist 3C">
                 </div>
             </div>
         </div>
@@ -138,50 +133,49 @@
         </div>
 
         <div class="masonry-grid !items-start">
-            <!-- Column 1 -->
-            <div class="reveal-up md:mt-24 mt-0" style="transition-delay: 100ms;">
-                <div class="rounded-[2.5rem] overflow-hidden shadow-2xl">
-                    <img src="./assets-images/gallery/7G0A9972 1.png" class="w-full h-auto img-hover-effect">
-                </div>
-            </div>
-            <!-- Column 2 -->
-            <div class="flex flex-col gap-8 reveal-up md:mt-12 mt-0" style="transition-delay: 200ms;">
-                <div class="rounded-[2.5rem] overflow-hidden shadow-2xl">
-                    <img src="./assets-images/gallery/freepik__front-facing-potrait__39335 1.png"
-                        class="w-full h-auto img-hover-effect">
-                </div>
-                <div class="rounded-[2.5rem] overflow-hidden shadow-2xl">
-                    <img src="./assets-images/gallery/freepik__ultrarealistic-cinematic-shot-of-the-same-man-pres__29942 1.png"
-                        class="w-full h-auto img-hover-effect">
-                </div>
-            </div>
-            <!-- Column 3 (Center) -->
-            <div class="flex flex-col gap-8 reveal-up" style="transition-delay: 300ms;">
-                <div class="rounded-[2.5rem] overflow-hidden shadow-2xl">
-                    <img src="./assets-images/gallery/freepik__man-preserve-exact-facial-features-identity-skin-t__39340 1.png"
-                        class="w-full h-auto img-hover-effect">
-                </div>
-                <div class="rounded-[2.5rem] overflow-hidden shadow-2xl">
-                    <img src="./assets-images/gallery/id21 1.png" class="w-full h-auto img-hover-effect">
-                </div>
-            </div>
-            <!-- Column 4 -->
-            <div class="flex flex-col gap-8 reveal-up md:mt-12 mt-0" style="transition-delay: 400ms;">
-                <div class="rounded-[2.5rem] overflow-hidden shadow-2xl">
-                    <img src="./assets-images/gallery/7G0A9918 1.png" class="w-full h-auto img-hover-effect">
-                </div>
-                <div class="rounded-[2.5rem] overflow-hidden shadow-2xl">
-                    <img src="./assets-images/gallery/7G0A9902 1.png" class="w-full h-auto img-hover-effect">
-                </div>
-            </div>
-            <!-- Column 5 -->
-            <div class="reveal-up md:mt-24 mt-0" style="transition-delay: 500ms;">
-                <div class="rounded-[2.5rem] overflow-hidden shadow-2xl">
-                    <img src="./assets-images/gallery/freepik__-same-man-preserve-exact-facial-features-identity-__39343 1.png"
-                        class="w-full h-auto img-hover-effect">
-                </div>
-            </div>
-        </div>
+<!-- Column 1 -->
+<div class="reveal-up self-center" style="transition-delay: 100ms;">
+    <div class="rounded-[1.5rem] overflow-hidden shadow-2xl">
+        <img src="./assets-images/gallery/sonic gallery/1.png" class="w-full h-auto img-hover-effect">
+    </div>
+</div>
+
+<!-- Column 2 -->
+<div class="flex flex-col gap-8 reveal-up md:mt-12 mt-0" style="transition-delay: 200ms;">
+    <div class="rounded-[1.5rem] overflow-hidden shadow-2xl w-[180px] h-[264px] mx-auto">
+        <img src="./assets-images/gallery/sonic gallery/2.png" class="w-full h-full object-cover img-hover-effect">
+    </div>
+    <div class="rounded-[1.5rem] overflow-hidden shadow-2xl w-[180px] h-[264px] mx-auto">
+        <img src="./assets-images/gallery/sonic gallery/3.png" class="w-full h-full object-cover img-hover-effect">
+    </div>
+</div>
+
+<!-- Column 3 (Center) -->
+<div class="flex flex-col gap-8 reveal-up" style="transition-delay: 300ms;">
+    <div class="rounded-[1.5rem] overflow-hidden shadow-2xl">
+        <img src="./assets-images/gallery/sonic gallery/4.png" class="w-full h-auto img-hover-effect">
+    </div>
+    <div class="rounded-[1.5rem] overflow-hidden shadow-2xl">
+        <img src="./assets-images/gallery/sonic gallery/5.png" class="w-full h-auto img-hover-effect">
+    </div>
+</div>
+
+<!-- Column 4 -->
+<div class="flex flex-col gap-8 reveal-up md:mt-12 mt-0" style="transition-delay: 400ms;">
+    <div class="rounded-[1.5rem] overflow-hidden shadow-2xl w-[180px] h-[264px] mx-auto">
+        <img src="./assets-images/gallery/sonic gallery/6.png" class="w-full h-full object-cover img-hover-effect">
+    </div>
+    <div class="rounded-[1.5rem] overflow-hidden shadow-2xl w-[180px] h-[264px] mx-auto">
+        <img src="./assets-images/gallery/sonic gallery/7.png" class="w-full h-full object-cover img-hover-effect">
+    </div>
+</div>
+
+<!-- Column 5 -->
+<div class="reveal-up self-center" style="transition-delay: 500ms;">
+    <div class="rounded-[1.5rem] overflow-hidden shadow-2xl">
+        <img src="./assets-images/gallery/sonic gallery/8.png" class="w-full h-auto img-hover-effect">
+    </div>
+</div>
     </section>
 
     <!-- Footer Placeholder -->
