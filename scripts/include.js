@@ -1,8 +1,3 @@
-/**
- * include.js
- * Handles loading of shared HTML components and global script logic.
- */
-
 async function includeHTML() {
     const components = [
         { id: 'navbar-placeholder', file: 'components/navbar.html' },
